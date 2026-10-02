@@ -2,6 +2,21 @@
 
 # Hicks Help MCP handoff
 
+Current blocker: the owner opened the browser test app and correctly objected
+that it shows no logo, generic "App developer" and version 1.0.0. That is the
+separate manually-created developer connection, not the public manifest's
+branding. Do not call it a finished branded listing or repeat that it is ready.
+The public package remains 0.1.3 with HAR logo/developer metadata; no new ZIP is
+needed merely to change the separate testing connection. Prepared
+assets/har-chatgpt-test.png from the owner's Downloads/hicksofficlappicon.png:
+256 by 256 PNG, 9,292 bytes, fits the observed 10 KB connection icon limit.
+It retains the real HAR artwork, with palette compression; visually inspected.
+Chrome still reports unavailable after another attempt. Actual app-edit fields,
+icon upload, developer/version overrides and final appearance are unverified.
+Do not claim those live changes occurred. Inspect the real connection menu when
+browser access returns, then apply available branding and use the public
+submission's proper listing for final branding verification. No recording yet.
+
 Latest owner evidence: the Supporting review content screen now displays the
 0.1.3 release notes verbatim and explicitly requests
 extensions.com.openai.review.demo_recording_url. That confirms the new review

@@ -2,6 +2,9 @@
 
 ## 0.1.3 — 2026-10-02
 
+- Prepared a 256px PNG of the owner's HAR app artwork under the browser
+  connection's 10 KB limit. This separate testing asset does not change the
+  public ZIP or establish that the live test app branding has been updated.
 - Explicitly sets all supported countries and keeps the English base listing;
   additional translations are optional under the current submission rules.
 - Preserves five positive and three negative review cases, commerce details,
