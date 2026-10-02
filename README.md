@@ -6,7 +6,7 @@ this server makes no OpenAI API calls and needs no OpenAI API key.
 
 ## Install the plugin
 
-Upload `artifacts/hicks-help-0.1.0.zip` in **New Plugin**, then enable Hicks Help.
+Upload `artifacts/hicks-help-0.1.1.zip` in **New Plugin**, then enable Hicks Help.
 The archive has `plugin.json`, `mcp.json` and the HAR logo at the portable plugin
 root. Its MCP connection is `https://hicksvilleautorecyclers.com/api/mcp`, with
 no authentication. Installation in a particular ChatGPT account and publication

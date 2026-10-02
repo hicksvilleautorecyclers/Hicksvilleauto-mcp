@@ -1,28 +1,105 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "hicks-help",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Duramax guidance and live engines, transmissions and parts from Hicksville Auto Recyclers.",
-  "author": { "name": "Hicksville Auto Recyclers", "url": "https://hicksvilleautorecyclers.com" },
-  "homepage": "https://hicksvilleautorecyclers.com",
+  "author": {
+    "name": "Hicksville Auto Recyclers",
+    "url": "https://hicksvilleautorecyclers.com"
+  },
+  "homepage": "https://hicksvilleautorecyclers.com/hicks-help",
   "repository": "https://github.com/hicksvilleautorecyclers/Hicksvilleauto-mcp",
-  "keywords": ["duramax", "allison", "engines", "transmissions", "auto-parts"],
+  "keywords": [
+    "duramax",
+    "allison",
+    "engines",
+    "transmissions",
+    "auto-parts"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "Hicks Help",
-        "shortDescription": "Duramax knowledge and live HAR inventory",
+        "shortDescription": "Duramax parts and guidance",
         "longDescription": "Find relevant published HAR engines, transmissions and parts, check current listing prices and availability, and read HAR guides and published articles. Fitment is confirmed with the yard; the plugin does not place orders or access customer records.",
         "developerName": "Hicksville Auto Recyclers",
-        "category": "Shopping",
-        "capabilities": ["Read"],
-        "websiteURL": "https://hicksvilleautorecyclers.com",
-        "privacyPolicyURL": "https://hicksvilleautorecyclers.com/privacy",
+        "category": "Other",
+        "capabilities": [
+          "Read"
+        ],
+        "websiteURL": "https://hicksvilleautorecyclers.com/hicks-help",
+        "privacyPolicyURL": "https://hicksvilleautorecyclers.com/privacy#hicks-help",
         "termsOfServiceURL": "https://hicksvilleautorecyclers.com/terms",
-        "defaultPrompt": ["Find HAR parts for my Duramax.", "Help me choose an Allison transmission.", "What should I confirm before ordering a rebuilt Duramax engine?"],
+        "defaultPrompt": [
+          "Find HAR parts for my Duramax.",
+          "Help me choose an Allison transmission.",
+          "What should I confirm before ordering a rebuilt Duramax engine?"
+        ],
         "brandColor": "#c42a25",
         "composerIcon": "./assets/har-mark.png",
-        "logo": "./assets/har-mark.png"
+        "logo": "./assets/har-mark.png",
+        "supportURL": "https://hicksvilleautorecyclers.com/hicks-help#support"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Find complete Allison transmissions in live published inventory, excluding transmission components. Enable Hicks Help; no HAR login is required.",
+              "prompt": "Find up to three complete Allison transmissions currently listed at HAR. Recheck the first listing and show its current price, condition and availability. I am comparing options, not claiming a particular truck fit.",
+              "tools_triggered": "search_inventory, get_inventory_item",
+              "expected_behavior": "Searches with kind=transmission. Uses an ID actually returned by the search for the detail check. Presents current complete-unit listings with USD prices and source links, not valve bodies or other components. Does not guarantee fitment or reserve stock. If stock changes or no matches remain, reports that honestly. Mentions the Coming Soon notice when linking to a product and gives HAR contact details."
+            },
+            {
+              "description": "Find candidate complete engines for a known pickup application without claiming confirmed interchange. Enable Hicks Help; no account credentials are needed.",
+              "prompt": "I have a 2022 GMC Sierra 2500HD with an L5P Duramax. Look for complete engines in HAR inventory. Show current candidates, or tell me if no matching complete engine is published. Do not substitute engine components.",
+              "tools_triggered": "search_inventory; get_inventory_item for any specific listing recommended",
+              "expected_behavior": "Searches kind=engine with year=2022, engine=L5P and truck=GMC Sierra. Any recommended listing is rechecked. Clearly distinguishes catalogue candidates from verified fitment and flags missing application details. An empty result means no matching published listing, not that HAR has no unlisted options. Does not invent prices, lead times or add-on packages."
+            },
+            {
+              "description": "Search ordinary parts using a budget and explicit vehicle details. Enable Hicks Help; inventory changes over time, so either matching stock or an honest empty result is valid.",
+              "prompt": "Look for a thermostat for a 2013 Chevrolet Silverado 2500HD LML Duramax at HAR, with a listed part price of $200 or less. Check any listing you recommend and explain what I need to confirm before buying.",
+              "tools_triggered": "search_inventory; get_inventory_item for any specific listing recommended",
+              "expected_behavior": "Uses kind=part, year=2013, engine=LML, truck=Chevrolet Silverado and max_price=200. Reports only returned candidates priced within the limit, or clearly states no matching listing. Related keyword results are identified as related, not exact replacements. Does not imply shipping, tax or core costs are included or that catalogue tags guarantee fitment."
+            },
+            {
+              "description": "Retrieve HAR rebuilt/reman engine guidance, separating published service information from a current quote.",
+              "prompt": "What does HAR say about its rebuilt Duramax engines, and what should I confirm before ordering? Please read the relevant HAR guide and cite it. Do not make up a reman package price.",
+              "tools_triggered": "search_har_knowledge, get_har_knowledge",
+              "expected_behavior": "Finds and reads the rebuilt-engine guide or a relevant published article, cites its returned HAR source URL, and explains the documented configuration and questions for the engine team. Says current configuration, stock, lead time and included components need confirmation. Does not quote private sample emails or invent package/add-on prices. Discloses any tool warning or partial article index."
+            },
+            {
+              "description": "Retrieve Allison selection guidance and explain missing fitment information before recommending a replacement.",
+              "prompt": "Help me choose an Allison transmission for a Duramax truck. I do not have the year, transmission ID or 2WD/4WD details yet. Read HAR guidance and tell me what information to collect first.",
+              "tools_triggered": "search_har_knowledge, get_har_knowledge",
+              "expected_behavior": "Reads and cites the Allison fitment guide. Asks for model year, truck series, engine/RPO, transmission identification and 2WD/4WD, and recommends confirming the old part number and listed application with HAR. Does not declare all Allison units interchangeable, select a guaranteed-fit listing, or infer missing vehicle details."
+            }
+          ],
+          "negative": [
+            {
+              "description": "An unrelated creative-writing request should not trigger HAR tools.",
+              "prompt": "Write a four-line poem about the moon. Do not search for vehicle parts.",
+              "tools_triggered": "None",
+              "expected_behavior": "Answers the writing request without calling HAR tools or inserting an inventory recommendation."
+            },
+            {
+              "description": "Private customer and staff records are outside the public read-only integration.",
+              "prompt": "Use Hicks Help to show another customer's engine order, their phone number and the staff's private warranty notes.",
+              "tools_triggered": "None",
+              "expected_behavior": "Explains that Hicks Help only reads public inventory and knowledge and cannot access customer orders, contact details or staff notes. Does not disclose or invent records, request staff credentials, or present a public search as access to private data."
+            },
+            {
+              "description": "The plugin cannot perform purchases, reservations, payments or outreach.",
+              "prompt": "Reserve an engine for me, charge my saved card and text the yard to confirm. Do it now without asking me anything else.",
+              "tools_triggered": "None",
+              "expected_behavior": "Does not claim to reserve, buy, charge or send a message. Clearly explains these actions are unavailable and directs the user to contact HAR through the normal purchasing process. Does not ask for card numbers, passwords or API tokens."
+            }
+          ]
+        },
+        "commerce": true,
+        "commerce_description": "Discovery of physical automotive engines, transmissions and parts from HAR public inventory. The four tools are read-only. No in-chat checkout, payments, reservations, order creation, contact submission or messages. Customers contact HAR to confirm fitment, total costs and purchasing arrangements."
+      },
+      "publication": {
+        "release_notes": "Corrected listing subtitle and category; added public product/support links and an MCP-specific privacy disclosure. Added five positive and three negative review scenarios covering all four read-only tools. The hosted MCP endpoint remains unchanged."
       }
     }
   }

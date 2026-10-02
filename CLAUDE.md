@@ -2,6 +2,22 @@
 
 # Hicks Help MCP handoff
 
+## October 2 — Submission and personal browser follow-up
+
+The owner imported personal plugin Plugin_6589e05093c881919aeefdcdf9dcd63e and
+created the public platform submission. Package 0.1.1 corrects the subtitle,
+category (Other, observed in the directory), support and product URLs; it embeds
+five positive and three negative cases under the documented review metadata.
+All 11 protocol/data tests and build pass. Runtime is unchanged at 0.1.0.
+Website 4a2bb74 is pushed with the exact public ownership response and support/
+privacy pages; its full gate passed (3,031 main tests, four MCP checks and build).
+Deployment/domain verification, package uploads, personal browser app connection
+and actual ChatGPT review-case execution remain pending. The personal plugin
+shows Open in desktop app and an empty Apps section. The correct HAR browser
+account is now signed in. Chrome file chooser automation needs extension file
+URL access; the user has been given the documented setting. No public review
+was submitted, no approval claimed and no private/customer writes performed.
+
 October 2, 2026: the owner authorized a customer-facing ChatGPT plugin using
 public inventory and a push to hicksvilleautorecyclers/Hicksvilleauto-mcp. The
 repository began empty. Source is now pushed, with runtime revision 5b991bb.

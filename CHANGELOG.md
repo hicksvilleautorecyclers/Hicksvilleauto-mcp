@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.1 — 2026-10-02
+
+- Corrected the public subtitle and accepted category; added public product and
+  support URLs and the MCP-specific privacy section.
+- Packaged five positive and three negative review cases covering all four tools.
+- Runtime remains 0.1.0 at the same public HTTPS endpoint. Website ownership
+  verification, personal browser connection and directory review are separate
+  checkpoints; do not infer submission or approval from the archive.
+
 ## 0.1.0 — 2026-10-02
 
 - Four public read-only tools for live stock, listing rechecks, sourced HAR
