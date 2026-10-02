@@ -4,7 +4,7 @@ export const VERSION = "0.1.0";
 export const SITE_NOTICE = "HAR’s website currently shows Coming Soon to visitors without preview access. Product links may show that screen. Call 419-542-8500 to confirm fitment, stock and purchasing; this tool does not place an order.";
 
 export type Config = { supabaseUrl: string; publishableKey: string; origin: string };
-export function configFromEnv(env: NodeJS.ProcessEnv = process.env): Config {
+export function configFromEnv(env: Record<string, string | undefined> = process.env): Config {
   const supabaseUrl = env.HAR_SUPABASE_URL ?? env.NEXT_PUBLIC_SUPABASE_URL ?? "";
   const publishableKey = env.HAR_SUPABASE_PUBLISHABLE_KEY ?? env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? "";
   const url = new URL(supabaseUrl);
