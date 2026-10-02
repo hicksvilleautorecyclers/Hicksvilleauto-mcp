@@ -2,6 +2,28 @@
 
 # Hicks Help MCP handoff
 
+## October 2 — Public submission only; review metadata update
+
+The owner clarified repeatedly that Hicks Help must work in regular browser
+ChatGPT and be submitted publicly. Stop directing them to the personal plugin
+or treating desktop-only installation as completion. The active dashboard is
+https://platform.openai.com/plugins/manage/plugin_asdk_app_6abfcfb8b4548191a3bdff9cbdc2688b?tab=details&version=appsub_6abfcfb8b4808191be3814433d6b86f1&mcp=server%3Ahar.
+They confirmed a duplicate `hicks-help` name error from Upload new version in
+this public dashboard. Do not assert they used New Plugin; that assumption was
+corrected. Do not rename the package or create another submission to bypass it.
+
+The owner then saw Review information managed by the ZIP and requested that we
+fill it. Version 0.1.3 explicitly sets publication.countries=[] (all supported)
+and publication.translations={} (base English, no optional translations), with
+the existing five positive/three negative cases, commerce and release notes.
+Official submission docs confirm country restrictions/translations are optional;
+the outstanding required field is a real review.demo_recording_url. No fake or
+placeholder video URL is supplied. Actual upload state cannot be verified while
+Chrome remains disconnected. Finish the public package upload, fresh browser
+citation check and real recording, host its accessible URL, add it to review
+metadata and save/submit the existing public draft. Browser connection recovery
+was already requested; user has not confirmed it. Hosted runtime is unchanged.
+
 ## October 2 — Submission and personal browser follow-up
 
 The owner imported personal plugin Plugin_6589e05093c881919aeefdcdf9dcd63e and

@@ -4,21 +4,28 @@ A customer-facing, read-only MCP server for live Hicksville Auto Recyclers
 inventory and HAR's public Duramax knowledge. ChatGPT supplies the conversation;
 this server makes no OpenAI API calls and needs no OpenAI API key.
 
-## Install the plugin
+## Public ChatGPT submission
 
-Upload `artifacts/hicks-help-0.1.2.zip` in **New Plugin**, then enable Hicks Help.
+Upload `artifacts/hicks-help-0.1.3.zip` through the existing public Hicks Help
+submission's package update flow on platform.openai.com.
 The archive has `plugin.json`, `mcp.json` and the HAR logo at the portable plugin
 root. Its MCP connection is `https://hicksvilleautorecyclers.com/api/mcp`, with
 no authentication. Installation in a particular ChatGPT account and publication
 in the public directory are separate steps; neither is established by a build.
 
-For personal testing in regular ChatGPT, the plugin's **App** entry is the
-browser connection. If that entry is empty, choose **Add app**, name it Hicks
-Help, use the same MCP URL with **No authentication**, then connect it and choose
-**Try in chat**. Uploading the portable archive alone may show **Open in desktop
-app**; that button does not establish a browser app connection. Once connected,
-use the app mention in a new browser chat. Update an existing plugin through
-**Plugin actions → Upload new version**, rather than creating another copy.
+The requested product is regular ChatGPT on the web, using the hosted MCP; a
+desktop-only listing does not satisfy this requirement. The public submission
+is `plugin_asdk_app_6abfcfb8b4548191a3bdff9cbdc2688b`, draft
+`appsub_6abfcfb8b4808191be3814433d6b86f1`. Keep this identity and the `hicks-help`
+package name. A duplicate-name error during an existing-draft upload is unresolved;
+renaming the package or starting another personal plugin is not the fix.
+
+The ZIP imports all-supported-country availability, the English base listing,
+five positive and three negative cases, commerce details and release notes.
+Translations are optional. A real accessible video URL is still required before
+public submission. Omit `review.demo_recording_url` until the recording exists;
+omission preserves a recording entered securely in the dashboard. See the
+[official review fields](https://developers.openai.com/plugins/deploy/submission#configure-onboarding-review-and-publication).
 
 Try “Find complete Allison transmissions at HAR” or “What should I confirm before
 ordering a rebuilt Duramax?” Give the year, truck model, engine/RPO and 2WD/4WD

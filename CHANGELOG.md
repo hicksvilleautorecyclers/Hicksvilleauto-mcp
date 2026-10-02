@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.3 — 2026-10-02
+
+- Explicitly sets all supported countries and keeps the English base listing;
+  additional translations are optional under the current submission rules.
+- Preserves five positive and three negative review cases, commerce details,
+  the public HTTPS MCP connection and release notes.
+- Instructions now target the existing public submission for regular browser
+  ChatGPT. Personal-plugin installation is not the public submission workflow.
+- Walkthrough video and the dashboard duplicate-name error remain unresolved.
+  No public submission or approval is claimed, and the hosted runtime is unchanged.
+
 ## 0.1.2 — 2026-10-02
 
 - Public source URLs now use the documented search-result/document fields as
