@@ -6,7 +6,7 @@ this server makes no OpenAI API calls and needs no OpenAI API key.
 
 ## Public ChatGPT submission
 
-Upload `artifacts/hicks-help-0.1.3.zip` through the existing public Hicks Help
+Upload `artifacts/hicks-help-0.1.4.zip` through the existing public Hicks Help
 submission's package update flow on platform.openai.com.
 The archive has `plugin.json`, `mcp.json` and the HAR logo at the portable plugin
 root. Its MCP connection is `https://hicksvilleautorecyclers.com/api/mcp`, with
@@ -22,10 +22,15 @@ renaming the package or starting another personal plugin is not the fix.
 
 The ZIP imports all-supported-country availability, the English base listing,
 five positive and three negative cases, commerce details and release notes.
-Translations are optional. A real accessible video URL is still required before
-public submission. Omit `review.demo_recording_url` until the recording exists;
-omission preserves a recording entered securely in the dashboard. See the
+Translations are optional. Package 0.1.4 adds the owner-supplied transmission
+shopping recording under `review.demo_recording_url`. The recording shows live
+inventory and related-parts guidance; it does not demonstrate every submitted
+test case. Complete remaining review coverage before final submission. See the
 [official review fields](https://developers.openai.com/plugins/deploy/submission#configure-onboarding-review-and-publication).
+
+Once Hicks Help is installed and connected, start a new ChatGPT chat. ChatGPT
+can choose installed tools for a relevant task; type `@Hicks Help` to explicitly
+select it. No automatic recommendation on every Duramax question is promised.
 
 Try “Find complete Allison transmissions at HAR” or “What should I confirm before
 ordering a rebuilt Duramax?” Give the year, truck model, engine/RPO and 2WD/4WD

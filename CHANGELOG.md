@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.4 — 2026-10-02
+
+- Adds the owner's actual browser recording as the public submission's
+  `review.demo_recording_url`, on an unlisted HAR website player.
+- Video hosted and verified with anonymous HEAD, byte-range seeking and a
+  complete downloaded hash comparison. Website 58d126f deployed at 2:07 PM ET;
+  its public player, noindex headers and unchanged Coming Soon gate passed.
+- Keeps HAR branding, the hosted HTTPS MCP, English/all-country availability
+  and the existing five positive/three negative review cases. Release notes
+  describe customer capabilities instead of internal submission metadata.
+- Build, all twelve protocol/data tests and all four live public tools pass.
+  The supplied clip shows transmission/related-parts shopping, not every review
+  test case. The existing public draft must receive this updated ZIP; final
+  submission, complete recording coverage and approval are not claimed.
+
 ## 0.1.3 — 2026-10-02
 
 - Prepared a 256px PNG of the owner's HAR app artwork under the browser

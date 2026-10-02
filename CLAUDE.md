@@ -2,7 +2,44 @@
 
 # Hicks Help MCP handoff
 
-Current blocker: the owner opened the browser test app and correctly objected
+## October 2 — Owner recording hosted; package 0.1.4
+
+The owner supplied /Users/xcode/Desktop/HAR-app/scripts/harvideo.mov and asked
+to host it on the website. The actual 148.54-second silent recording is preserved
+and remuxed to H.264 MP4 without re-encoding. Its public review page is
+https://hicksvilleautorecyclers.com/demo/video/3244324/videosubmission.
+Website 58d126f deployed at 2:07 PM ET (18:07:31Z), Vercel
+CvoEdALabie44Vjh2t2YCv11QHqo. Anonymous browser-style HTTP returns the real player
+and noindex/nofollow headers; the shop still shows Coming Soon. Plain Python's
+default user-agent received 403; no Cloudflare protection was weakened.
+
+Storage is the dedicated plugin-review-media bucket (video/mp4, 50 MiB limit),
+with a content-addressed MP4 object. Anonymous HEAD 200, Range 206 and the entire
+downloaded hash/size match passed. Existing bucket settings and row policies are
+unchanged. Read-only inspection of actual storage policies shows no write grant
+for this new bucket. The first public upload was refused by automatic review;
+after visible-content sampling and explicit user-authorization evidence, the
+reviewed retry was approved. A proposed anonymous test write was also refused;
+it never ran and was replaced by the read-only policy query. No production test
+objects, messages or customer requests were created.
+
+Package 0.1.4 adds review.demo_recording_url and customer-facing release notes;
+the stable identity, English/all-country settings, HAR logo/developer and five
+positive/three negative cases remain. Build, all 12 protocol/data tests and all
+four live public tools passed. Website checks: nine route/MCP, 24 referrer/SEO,
+lint, types/boundary, production build and 43 PDF traces. This clip demonstrates
+transmission shopping and related parts, not every submitted test case. Finish
+review coverage before final submission; do not call public review approved.
+The separate testing connection's generic branding and disconnected browser
+automation remain unresolved. No dashboard package upload/submission is claimed.
+
+Next: hand over artifacts/hicks-help-0.1.4.zip (copy to Downloads), update the
+existing public draft through Upload new version, and confirm its recording URL
+appears. Do not create another plugin or point the owner to a desktop-only flow.
+
+## Earlier browser test-app branding checkpoint
+
+The owner opened the browser test app and correctly objected
 that it shows no logo, generic "App developer" and version 1.0.0. That is the
 separate manually-created developer connection, not the public manifest's
 branding. Do not call it a finished branded listing or repeat that it is ready.

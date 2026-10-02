@@ -27,9 +27,11 @@ archive; they have not been completed.
 
 Support: https://hicksvilleautorecyclers.com/hicks-help#support
 
-Version 0.1.3 explicitly selects all supported countries and the base English
-listing. Additional translations are optional. It includes five positive cases,
-three negative cases, release notes and the commerce disclosure. The remaining
-required review material is a real accessible walkthrough video URL. This
-package intentionally does not claim that a recording exists or that public
-review has been submitted or approved.
+Version 0.1.4 includes the owner-supplied browser walkthrough URL, all supported
+countries, the English listing, five positive cases, three negative cases and
+commerce details. The clip demonstrates transmission shopping and related parts;
+it does not establish completion of every review case. Public submission and
+approval remain separate from preparing or uploading this package.
+
+Once installed and connected, start a new chat. ChatGPT can choose installed
+tools for relevant tasks; type `@Hicks Help` to select this plugin explicitly.
