@@ -59,6 +59,10 @@ export class Knowledge {
   }
   async get(id:string){
     const guide=GUIDES.find(g=>g.id===id)??(id.startsWith("blog:")?(await this.articles(id.slice(5)))[0]:undefined);
-    return {status:guide?"found":"not_found",article:guide??null,checked_at:new Date().toISOString(),website_notice:SITE_NOTICE};
+    // Keep the article object for existing clients and expose the standard
+    // document fields at the root for URL-backed citation handling.
+    return {status:guide?"found":"not_found",article:guide??null,
+      id:guide?.id??null,title:guide?.title??null,url:guide?.url??null,text:guide?.text??null,
+      checked_at:new Date().toISOString(),website_notice:SITE_NOTICE};
   }
 }

@@ -36,6 +36,29 @@ test("unavailable catalogue is an error, not an empty search; valid zero invento
   try{const result=await client.callTool({name:"search_inventory",arguments:{query:"engine"}});assert.equal(result.isError,true);assert.equal(result.structuredContent,undefined);assert.match(result.content[0].text,/unavailable/);assert.doesNotMatch(JSON.stringify(result),/private upstream/);}finally{await client.close();}
   const fake=reads([]);const result=await new Catalogue(new PublicData(config,fake.fetch)).search(SearchInput.parse({query:"engine"}));assert.equal(result.total,0);assert.match(result.note,/No matching published/);
 });
+test("citation fields resolve to the returned public record and disappear when it is unavailable",async()=>{
+  let stock=[item];
+  const client=await clientFor(async url=>response(String(url).includes("blog_posts")?[]:stock));
+  try {
+    const search=await client.callTool({name:"search_inventory",arguments:{kind:"transmission"}});
+    const hit=search.structuredContent.results[0];
+    assert.deepEqual(hit,{id:item.slug,title:item.title,url:`https://hicksvilleautorecyclers.com/shop/product/${item.slug}`});
+    const fetched=await client.callTool({name:"get_inventory_item",arguments:{id:hit.id}});
+    assert.ok(!fetched.isError);
+    assert.equal(fetched.structuredContent.url,hit.url);
+    assert.match(fetched.structuredContent.text,/USD 1500.*Published stock: 1/);
+    const guide=await client.callTool({name:"get_har_knowledge",arguments:{id:"guide:rebuilt-engines"}});
+    assert.ok(!guide.isError);
+    assert.equal(guide.structuredContent.url,"https://hicksvilleautorecyclers.com/engines/rebuilt");
+    assert.equal(guide.structuredContent.text,guide.structuredContent.article.text);
+    stock=[];
+    for(const [name,id] of [["get_inventory_item",item.slug],["get_har_knowledge","guide:missing"]]) {
+      const missing=await client.callTool({name,arguments:{id}});
+      assert.ok(!missing.isError);
+      for(const key of ["url","title","text"]) assert.equal(missing.structuredContent[key],null);
+    }
+  } finally {await client.close();}
+});
 test("catalogue reads exact fields and drains all pages; a cap or malformed row refuses an incomplete answer",async()=>{
   let count=0;const pages=Array.from({length:250},(_,i)=>({...item,slug:`part-${i}`}));
   const db=new PublicData(config,async(url)=>{assert.equal(new URL(url).searchParams.get("select"),CATALOG_COLUMNS);return response(count++===0?pages:[{...item,slug:"final-part"}]);});

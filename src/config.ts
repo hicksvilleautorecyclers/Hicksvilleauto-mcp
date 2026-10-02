@@ -1,6 +1,6 @@
 export const WEBSITE = "https://hicksvilleautorecyclers.com";
 export const PHONE = "+14195428500";
-export const VERSION = "0.1.0";
+export const VERSION = "0.1.1";
 export const SITE_NOTICE = "HAR’s website currently shows Coming Soon to visitors without preview access. Product links may show that screen. Call 419-542-8500 to confirm fitment, stock and purchasing; this tool does not place an order.";
 
 export type Config = { supabaseUrl: string; publishableKey: string; origin: string };

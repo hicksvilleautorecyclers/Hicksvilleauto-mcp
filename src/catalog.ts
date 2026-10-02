@@ -88,16 +88,24 @@ export class Catalogue {
         return { part, matched };
       }).filter(entry => !terms.length || entry.matched > 0).sort((a,b) => b.matched-a.matched || a.part.slug.localeCompare(b.part.slug));
     const exact = ranked.filter(r => r.matched === terms.length); const selected = exact.length ? exact : ranked;
+    const listings = selected.slice(0,args.limit).map(({part})=>listing(part,args));
     return { checked_at: new Date().toISOString(), currency: "USD", query: args, total: selected.length, query_match: exact.length || !terms.length ? "all_search_terms" : "related_only",
-      listings: selected.slice(0,args.limit).map(({part})=>listing(part,args)),
+      listings,
+      // Standard URL-backed search results let clients associate citations with
+      // the same public records; keep the richer listings contract unchanged.
+      results: listings.map(({id,title,url})=>({id,title,url})),
       note: selected.length ? "Listed stock is not reserved. Confirm application before purchasing. Prices exclude any separately quoted shipping, core costs and tax." : "No matching published listing was found. This does not establish that HAR has no unlisted engines or transmissions; call the team.",
       website_notice: SITE_NOTICE, contact_url: `${WEBSITE}/contact`,
     };
   }
   async get(id: string) {
     const raw = await this.data.read("parts",new URLSearchParams({select:CATALOG_COLUMNS,slug:`eq.${id}`,status:"eq.published",stock_quantity:"gt.0",limit:"1"}));
-    if (!raw.length) return { checked_at:new Date().toISOString(), status:"not_available", listing:null, website_notice:SITE_NOTICE };
+    if (!raw.length) return { checked_at:new Date().toISOString(), status:"not_available", listing:null, id:null, title:null, url:null, text:null, website_notice:SITE_NOTICE };
     const part=PublicPart.safeParse(raw[0]); if(!part.success)throw new DataUnavailable("Live HAR inventory");
-    return { checked_at:new Date().toISOString(),status:"available",listing:listing(part.data),website_notice:SITE_NOTICE };
+    const item = listing(part.data);
+    return { checked_at:new Date().toISOString(),status:"available",listing:item,
+      id:item.id,title:item.title,url:item.url,
+      text:`${item.title}. Listed price: USD ${item.price}. Condition: ${item.condition}. Published stock: ${item.stock_quantity}. ${item.description} ${item.fitment.note} ${SITE_NOTICE}`,
+      website_notice:SITE_NOTICE };
   }
 }

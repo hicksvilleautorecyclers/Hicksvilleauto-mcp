@@ -5,14 +5,21 @@
 ## October 2 — Submission and personal browser follow-up
 
 The owner imported personal plugin Plugin_6589e05093c881919aeefdcdf9dcd63e and
-created the public platform submission. Package 0.1.1 corrects the subtitle,
+created the public platform submission. Package 0.1.2 corrects the subtitle,
 category (Other, observed in the directory), support and product URLs; it embeds
 five positive and three negative cases under the documented review metadata.
-All 11 protocol/data tests and build pass. Runtime is unchanged at 0.1.0.
+All 12 protocol/data tests and build pass. Runtime 0.1.1 additionally exposes
+standard URL-backed search/document fields while preserving existing responses.
+Browser testing found invented file citations despite correct guide data; exact
+public URL fields and explicit Markdown-link guidance are prepared. Deployment
+and a new-browser-chat citation check remain pending.
 Website 4a2bb74 is pushed with the exact public ownership response and support/
 privacy pages; its full gate passed (3,031 main tests, four MCP checks and build).
-Deployment/domain verification, package uploads, personal browser app connection
-and actual ChatGPT review-case execution remain pending. The personal plugin
+Website 4a2bb74 deployed at 12:04 PM ET; live token/HEAD/405, support/privacy
+pages and unchanged gates passed. OpenAI Domain verified and MCP scan no issues
+are confirmed. Five positive/three negative cases are saved in the portal.
+The personal browser app is connected and live inventory/rechecks/guidance work.
+Package uploads and the walkthrough remain pending. The personal plugin
 shows Open in desktop app and an empty Apps section. The correct HAR browser
 account is now signed in. Chrome file chooser automation needs extension file
 URL access; the user has been given the documented setting. No public review

@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "hicks-help",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Duramax guidance and live engines, transmissions and parts from Hicksville Auto Recyclers.",
   "author": {
     "name": "Hicksville Auto Recyclers",
@@ -99,7 +99,7 @@
         "commerce_description": "Discovery of physical automotive engines, transmissions and parts from HAR public inventory. The four tools are read-only. No in-chat checkout, payments, reservations, order creation, contact submission or messages. Customers contact HAR to confirm fitment, total costs and purchasing arrangements."
       },
       "publication": {
-        "release_notes": "Corrected listing subtitle and category; added public product/support links and an MCP-specific privacy disclosure. Added five positive and three negative review scenarios covering all four read-only tools. The hosted MCP endpoint remains unchanged."
+        "release_notes": "Find published HAR engines, Allison transmissions and parts, check current listing prices and stock, and read sourced Duramax guidance. Updated product/support information and explicit public source URLs. Confirm fitment and purchasing details with the yard; Hicks Help does not place orders or access customer records."
       }
     }
   }

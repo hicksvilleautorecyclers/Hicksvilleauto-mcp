@@ -1,10 +1,12 @@
 {
   "name": "hicksvilleauto-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "description": "Hicks Help: public HAR inventory and Duramax knowledge for ChatGPT and MCP clients.",
-  "engines": { "node": "24.x" },
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "build": "tsc",
     "check": "tsc --noEmit && node --test tests/*.test.mjs",

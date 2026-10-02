@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.2 — 2026-10-02
+
+- Public source URLs now use the documented search-result/document fields as
+  well as the existing rich response objects, to support ChatGPT citations.
+- Guidance explicitly requests ordinary webpage links rather than invented
+  uploaded-file citations. Missing records never carry stale citation details.
+- Twelve real-SDK/data tests pass. Browser citation verification remains pending
+  deployment; prior live browser reads confirmed stock, rechecks and guidance.
+
 ## 0.1.1 — 2026-10-02
 
 - Corrected the public subtitle and accepted category; added public product and

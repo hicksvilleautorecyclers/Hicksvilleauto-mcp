@@ -27,5 +27,5 @@ archive; they have not been completed.
 
 Support: https://hicksvilleautorecyclers.com/hicks-help#support
 
-Version 0.1.1 includes corrected listing metadata and review scenarios. A real
+Version 0.1.2 includes corrected listing metadata and review scenarios. A real
 review walkthrough and final directory approval remain separate requirements.
