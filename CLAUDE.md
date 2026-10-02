@@ -11,19 +11,32 @@ five positive and three negative cases under the documented review metadata.
 All 12 protocol/data tests and build pass. Runtime 0.1.1 additionally exposes
 standard URL-backed search/document fields while preserving existing responses.
 Browser testing found invented file citations despite correct guide data; exact
-public URL fields and explicit Markdown-link guidance are prepared. Deployment
-and a new-browser-chat citation check remain pending.
+public URL fields and explicit Markdown-link guidance are deployed through
+website c6eeef2 at 12:57 PM ET (16:57:03Z), Vercel BPZqFmVEbGEFMB7gGrrxStdjQYY7,
+from MCP source 129234e. Twelve protocol/data tests and build pass. The website's
+eight focused route/gate checks, lint, types, boundary and build/43 PDF traces
+passed. The real remote SDK passed all four tools, twelve transmission matches,
+fresh listing/source checks and no stale source for a missing listing. A new
+ChatGPT browser chat must still verify rendered citations; server output alone
+does not establish that. Browser evidence is in
+/private/tmp/hicks-help-review-captures; the first guide result contains broken
+citations and must not be presented as a passing review recording.
 Website 4a2bb74 is pushed with the exact public ownership response and support/
 privacy pages; its full gate passed (3,031 main tests, four MCP checks and build).
 Website 4a2bb74 deployed at 12:04 PM ET; live token/HEAD/405, support/privacy
 pages and unchanged gates passed. OpenAI Domain verified and MCP scan no issues
 are confirmed. Five positive/three negative cases are saved in the portal.
 The personal browser app is connected and live inventory/rechecks/guidance work.
-Package uploads and the walkthrough remain pending. The personal plugin
-shows Open in desktop app and an empty Apps section. The correct HAR browser
-account is now signed in. Chrome file chooser automation needs extension file
-URL access; the user has been given the documented setting. No public review
-was submitted, no approval claimed and no private/customer writes performed.
+Package uploads and the walkthrough remain pending. The personal plugin now
+has its Hicks Help browser App attached, and Try in chat successfully connected
+it. Both package listings still show 0.1.0. After the owner enabled file URL
+access, file chooser retries timed out and Chrome disconnected. Extension and
+native-host diagnostics passed; reopening Chrome did not reconnect it. The
+owner was asked to reinstall the Browser plugin. Resume both 0.1.2 uploads,
+rescan the deployed MCP and verify citations in a fresh chat before preparing
+the walkthrough. No public review was submitted, no approval claimed and no
+private/customer writes performed. The corrected ZIP in Downloads matches the
+committed archive (SHA-256 77d9ab626af733ab38a862ee32e82df20e8c6975ba0fc4d71d8592109511e592).
 
 October 2, 2026: the owner authorized a customer-facing ChatGPT plugin using
 public inventory and a push to hicksvilleautorecyclers/Hicksvilleauto-mcp. The

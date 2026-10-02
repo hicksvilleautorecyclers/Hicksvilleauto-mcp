@@ -6,8 +6,10 @@
   well as the existing rich response objects, to support ChatGPT citations.
 - Guidance explicitly requests ordinary webpage links rather than invented
   uploaded-file citations. Missing records never carry stale citation details.
-- Twelve real-SDK/data tests pass. Browser citation verification remains pending
-  deployment; prior live browser reads confirmed stock, rechecks and guidance.
+- Twelve real-SDK/data tests pass. Runtime source 129234e deployed through the
+  website at 12:57 PM ET. All four remote tools passed fresh public-source URL
+  checks. ChatGPT's rendered citation check and package uploads remain pending
+  after the browser connection was interrupted; no directory approval claimed.
 
 ## 0.1.1 — 2026-10-02
 

@@ -12,6 +12,14 @@ root. Its MCP connection is `https://hicksvilleautorecyclers.com/api/mcp`, with
 no authentication. Installation in a particular ChatGPT account and publication
 in the public directory are separate steps; neither is established by a build.
 
+For personal testing in regular ChatGPT, the plugin's **App** entry is the
+browser connection. If that entry is empty, choose **Add app**, name it Hicks
+Help, use the same MCP URL with **No authentication**, then connect it and choose
+**Try in chat**. Uploading the portable archive alone may show **Open in desktop
+app**; that button does not establish a browser app connection. Once connected,
+use the app mention in a new browser chat. Update an existing plugin through
+**Plugin actions → Upload new version**, rather than creating another copy.
+
 Try “Find complete Allison transmissions at HAR” or “What should I confirm before
 ordering a rebuilt Duramax?” Give the year, truck model, engine/RPO and 2WD/4WD
 when discussing fitment. Product links currently encounter the website's Coming
