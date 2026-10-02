@@ -2,6 +2,21 @@
 
 # Hicks Help MCP handoff
 
+Latest owner evidence: the Supporting review content screen now displays the
+0.1.3 release notes verbatim and explicitly requests
+extensions.com.openai.review.demo_recording_url. That confirms the new review
+metadata reached the public draft; do not keep telling the owner to upload the
+same ZIP for country settings. The owner now wants to install/use Hicks Help in
+regular ChatGPT first, then record it. The existing HAR browser testing app is
+https://chatgpt.com/plugins/plugin_asdk_app_6abfd65360c08191a60b89fbe27f0024?view=personal
+and previously connected successfully with Try in chat. That is for testing,
+not a replacement public submission. The owner reported Browser reconnected,
+but both agent.browsers.get('chrome') and discovery still returned unavailable/
+empty; be honest about lack of UI control. Plugin Management search did not
+return Hicks Help (it returned unrelated public plugins); do not suggest them
+or infer the private test app disappeared. No video or public review submission
+exists yet. Package 0.1.3 is pushed in d27d361 and is in Downloads.
+
 ## October 2 — Public submission only; review metadata update
 
 The owner clarified repeatedly that Hicks Help must work in regular browser
