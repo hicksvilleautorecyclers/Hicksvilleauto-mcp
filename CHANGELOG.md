@@ -1,5 +1,18 @@
 # Changelog
 
+## Personal browser testing 1.0.1 — 2026-10-02
+
+- Fixes the prepared update's identity mismatch using the actual exported
+  personal package name and its unchanged registered browser app mapping.
+- Adds HAR's logo, developer details, public links and starter prompts, with no
+  local executable or desktop requirement. A separate script packages only the
+  manifest, original app mapping, logo and README.
+- The owner reports the public submission is submitted. Its 0.1.4 ZIP remains
+  byte-for-byte unchanged; OpenAI approval is not confirmed.
+- Package checks, build, twelve protocol/data tests and all four live public
+  tools pass. Upload acceptance
+  and final branding in the personal app are still unverified.
+
 ## 0.1.4 — 2026-10-02
 
 - Adds the owner's actual browser recording as the public submission's

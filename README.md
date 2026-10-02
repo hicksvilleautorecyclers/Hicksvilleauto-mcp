@@ -6,8 +6,8 @@ this server makes no OpenAI API calls and needs no OpenAI API key.
 
 ## Public ChatGPT submission
 
-Upload `artifacts/hicks-help-0.1.4.zip` through the existing public Hicks Help
-submission's package update flow on platform.openai.com.
+The owner reports the public Hicks Help submission is submitted as of October 2.
+Its package is `artifacts/hicks-help-0.1.4.zip`; OpenAI approval is not confirmed.
 The archive has `plugin.json`, `mcp.json` and the HAR logo at the portable plugin
 root. Its MCP connection is `https://hicksvilleautorecyclers.com/api/mcp`, with
 no authentication. Installation in a particular ChatGPT account and publication
@@ -17,20 +17,38 @@ The requested product is regular ChatGPT on the web, using the hosted MCP; a
 desktop-only listing does not satisfy this requirement. The public submission
 is `plugin_asdk_app_6abfcfb8b4548191a3bdff9cbdc2688b`, draft
 `appsub_6abfcfb8b4808191be3814433d6b86f1`. Keep this identity and the `hicks-help`
-package name. A duplicate-name error during an existing-draft upload is unresolved;
-renaming the package or starting another personal plugin is not the fix.
+package name. Preserve this submitted package when updating a separate personal
+testing app.
 
 The ZIP imports all-supported-country availability, the English base listing,
 five positive and three negative cases, commerce details and release notes.
 Translations are optional. Package 0.1.4 adds the owner-supplied transmission
 shopping recording under `review.demo_recording_url`. The recording shows live
 inventory and related-parts guidance; it does not demonstrate every submitted
-test case. Complete remaining review coverage before final submission. See the
+test case. Any further review requirements depend on OpenAI's response. See the
 [official review fields](https://developers.openai.com/plugins/deploy/submission#configure-onboarding-review-and-publication).
 
 Once Hicks Help is installed and connected, start a new ChatGPT chat. ChatGPT
 can choose installed tools for a relevant task; type `@Hicks Help` to explicitly
 select it. No automatic recommendation on every Duramax question is promised.
+
+## Personal browser testing update
+
+The separate browser testing app's exported package has the internal name
+`dev-6abfd65360c08191a60b89fbe27f0024`, so the public `hicks-help` ZIP cannot
+update it. Use `artifacts/hicks-help-personal-1.0.1.zip` in that existing app's
+**Upload new version** dialog. It preserves the original registered browser
+app connection and adds HAR's logo, developer details, support links and prompts.
+The ZIP is prepared and checked; acceptance and rendered branding still require
+verification in ChatGPT. It needs no desktop executable or local server.
+
+Rebuild from the actual exported personal package, never a guessed app identity:
+
+```sh
+python3 scripts/package-personal-plugin.py /path/to/export.zip 1.0.1
+```
+
+Keep this personal update separate from the submitted public package.
 
 Try “Find complete Allison transmissions at HAR” or “What should I confirm before
 ordering a rebuilt Duramax?” Give the year, truck model, engine/RPO and 2WD/4WD

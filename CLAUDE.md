@@ -2,6 +2,37 @@
 
 # Hicks Help MCP handoff
 
+## October 2 — Personal browser update 1.0.1; public submission reported complete
+
+The owner reports the public platform submission is submitted and done. This is
+owner-confirmed submitted, not OpenAI-approved. Preserve its hicks-help identity
+and public 0.1.4 ZIP; do not reopen or replace it for a personal testing fix.
+
+The current personal app is
+https://chatgpt.com/plugins/plugin_asdk_app_6abfd65360c08191a60b89fbe27f0024.
+Its exported Downloads/dev-6abfd65360c08191a60b89fbe27f0024.zip establishes the
+exact internal name dev-6abfd65360c08191a60b89fbe27f0024 and existing registered
+browser app mapping. That name differs from hicks-help, causing the upload error.
+A separate personal update preserves both the name and exact .app.json bytes,
+uses the supported .codex-plugin compatibility manifest, increases 1.0.0 to
+1.0.1 and includes HAR's logo, developer, support/legal links and starter prompts.
+No local executable, desktop requirement or new connection is introduced.
+
+Ready ZIP: /Users/xcode/Downloads/hicks-help-personal-1.0.1.zip, also saved in
+MCP artifacts. SHA256
+9693202f1e8bfb7c2a44331fe17708b1170c5b8669693f03052c0bb5bfd65f39.
+The script scripts/package-personal-plugin.py rebuilds it from the real export;
+only the manifest, app mapping, logo and README are allowed in the archive.
+Package identity/mapping/assets and unchanged public ZIP hashes were verified.
+MCP build, all twelve protocol/data tests and all four live public tools pass.
+Finder was opened with the
+corrected personal ZIP selected. The actual ChatGPT upload and rendered branding
+remain unverified while browser control is unavailable; use Re-Upload on the
+existing personal app, not the public dashboard. Do not claim it is installed.
+
+Public changelog reviewed: no directory-launch announcement while approval is
+unconfirmed. No website runtime, database, Android build or Meta changes.
+
 ## October 2 — Owner recording hosted; package 0.1.4
 
 The owner supplied /Users/xcode/Desktop/HAR-app/scripts/harvideo.mov and asked
