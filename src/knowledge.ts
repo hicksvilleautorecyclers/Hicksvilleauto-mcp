@@ -3,7 +3,7 @@ import { PublicData, DataUnavailable } from "./public-data.js";
 import { queryTerms } from "./catalog.js";
 import { WEBSITE, SITE_NOTICE } from "./config.js";
 
-type Guide = { id: string; title: string; text: string; url: string; reviewed_at: string; source: string };
+type Guide = { id: string; title: string; text: string; url: string; reviewed_at: string; source: string; text_scope?: string };
 // Curated from HAR website copy at 2379551. No private email/quote prices.
 // Year bands describe HAR's catalogue groups; they are not a VIN decoder.
 export const GUIDES: Guide[] = [
@@ -47,7 +47,7 @@ export class Knowledge {
     const rows=await this.data.read("blog_posts",new URLSearchParams({select:BLOG_COLUMNS,status:"eq.published",published_at:`lte.${new Date().toISOString()}`,order:"published_at.desc,id.desc",limit:slug?"1":"101",...(slug?{slug:`eq.${slug}`}:{})}));
     if(rows.length>100)throw new DataUnavailable("The complete HAR article index");
     return rows.map(row=>{const parsed=Blog.safeParse(row);if(!parsed.success)throw new DataUnavailable("HAR published articles");const a=parsed.data;
-      return {id:`blog:${a.slug}`,title:a.title,text:documentText(a.body)||a.excerpt,url:`${WEBSITE}/blog/${encodeURIComponent(a.slug)}`,reviewed_at:a.updated_at,source:"Published HAR article"};
+      return {id:`blog:${a.slug}`,title:a.title,text:documentText(a.body)||a.excerpt,url:`${WEBSITE}/blog/${encodeURIComponent(a.slug)}`,reviewed_at:a.updated_at,source:"Published HAR article",text_scope:"Published text extract, limited to 16,000 characters with media omitted. Read the source page for the complete article."};
     });
   }
   async search(query:string,limit=6){

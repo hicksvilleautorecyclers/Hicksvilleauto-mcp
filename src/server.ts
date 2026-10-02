@@ -34,7 +34,7 @@ export function createServer(config:Config,fetcher:typeof fetch=fetch){
     inputSchema:{query:z.string().trim().min(1).max(200),limit:z.number().int().min(1).max(8).default(6)},outputSchema:{status:z.enum(["ok","partial"]),checked_at:time,results:z.array(publicResult),warnings:z.array(z.string()),website_notice:z.string()},annotations,_meta:meta,
   },({query,limit})=>safe(()=>knowledge.search(query,limit)));
   server.registerTool("get_har_knowledge",{
-    title:"Read a HAR guide",description:"Read the complete source for a guide or published article returned by search_har_knowledge. Cite its URL. Use its review date and limitations; never derive a current price or availability from a guide.",
+    title:"Read a HAR guide",description:"Read a guide or a bounded text extract from a published article returned by search_har_knowledge, with its source URL. Cite the URL. Use its review date and limitations; never derive a current price or availability from a guide.",
     inputSchema:{id:z.string().min(1).max(210).regex(/^(guide|blog):[a-zA-Z0-9][a-zA-Z0-9_-]*$/)},outputSchema:{status:z.enum(["found","not_found"]),article:publicResult.nullable(),checked_at:time,website_notice:z.string()},annotations,_meta:meta,
   },({id})=>safe(()=>knowledge.get(id)));
   return server;

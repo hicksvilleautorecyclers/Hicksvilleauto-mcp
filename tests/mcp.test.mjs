@@ -69,6 +69,8 @@ test("knowledge preserves partial-read failure and only renders text from publis
   const result=await k.search("Duramax");assert.equal(result.status,"partial");assert.ok(result.warnings.length);assert.ok(result.results.length);
   assert.equal((await k.get("guide:missing")).status,"not_found");
   assert.equal(documentText({type:"doc",content:[{type:"paragraph",content:[{type:"text",text:"A real article"}]},{type:"image",attrs:{src:"secret"}}]}),"A real article ");
+  const article=new Knowledge(new PublicData(config,async()=>response([{slug:"long-guide",title:"Public guide",excerpt:"Summary",status:"published",published_at:"2026-01-01",updated_at:"2026-01-01",body:{type:"doc",content:Array.from({length:5},()=>({type:"text",text:"x".repeat(10000)}))}}])));
+  const extracted=(await article.get("blog:long-guide")).article;assert.equal(extracted.text.length,16000);assert.match(extracted.text_scope,/extract.*16,000/);
 });
 test("secret keys are refused and only safe configured public endpoints are accepted",()=>{
   const valid={HAR_SUPABASE_URL:config.supabaseUrl,HAR_SUPABASE_PUBLISHABLE_KEY:config.publishableKey,HAR_MCP_ORIGIN:config.origin};
